@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { token } from "../config";
-
 
 const useUserFetchData = (url) => {
   const [data, setData] = useState([]);
@@ -11,12 +9,12 @@ const useUserFetchData = (url) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        if(!token){
+        const token = localStorage.getItem("token");
+        if (!token) {
           throw new Error("Token is missing! Please log in again.");
         }
 
-
-    console.log("Fetching data from:", url);
+        console.log("Fetching data from:", url);
         const res = await fetch(url, {
           headers: { Authorization: `Bearer ${token}` },
         });

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../../utils/uploadCloudinary";
@@ -5,7 +6,7 @@ import { BASE_URL, token } from "../../config";
 import { toast } from "react-toastify";
 import { HashLoader } from "react-spinners";
 
-const Profile = (user) => {
+const Profile = ({ user, onProfileUpdate }) => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const [loading, setLoading] = useState(false);
@@ -62,6 +63,13 @@ const Profile = (user) => {
       }
       setLoading(false);
       toast.success(message);
+
+      
+      if (onProfileUpdate) {
+        onProfileUpdate();
+      }
+
+
       navigate("/users/profile/me");
     } catch (err) {
       toast.error(err.message);
@@ -70,9 +78,9 @@ const Profile = (user) => {
   };
 
   return (
-    <div className="mt-10">
+    <div className="mt-8">
       <form onSubmit={submitHandler}>
-        <div className="mb-5">
+        <div className="mb-3">
           <input
             type="text"
             placeholder="Full Name"
@@ -85,7 +93,7 @@ const Profile = (user) => {
             required
           />
         </div>
-        <div className="mb-5">
+        <div className="mb-3">
           <input
             type="email"
             placeholder="Enter your email"
@@ -99,7 +107,7 @@ const Profile = (user) => {
             readOnly
           />
         </div>
-        <div className="mb-5">
+        <div className="mb-3">
           <input
             type="password"
             placeholder="Password"
@@ -125,7 +133,7 @@ const Profile = (user) => {
             required
           />
         </div>
-        <div className="mb-5 flex items-center justify-between">
+        <div className="mb-3 flex items-center justify-between">
           <label className="text-headingColor font-bold text-[16px] leading-7">
             Gender
             <select
@@ -184,7 +192,7 @@ const Profile = (user) => {
             className="w-full bg-primaryColor text-white 
             text-[18px] leading[30px]"
           >
-            {loading ? <HashLoader size={25} color="#ffffff" /> : "Update"}
+            {loading ? <HashLoader size={20} color="#ffffff" /> : "Update"}
           </button>
         </div>
       </form>

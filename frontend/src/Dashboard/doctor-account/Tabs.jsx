@@ -1,20 +1,19 @@
 /* eslint-disable react/prop-types */
 import { useContext } from "react";
 import { BiMenu } from "react-icons/bi"; // ✅ Correct
-import {token, BASE_URL} from "../../config"
+import { token, BASE_URL } from "../../config";
 import { toast } from "react-toastify";
 
 import { authContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const Tabs = ({ tab, setTab ,doctorData}) => {
-
-  const { dispatch} = useContext(authContext);
+const Tabs = ({ tab, setTab, doctorData }) => {
+  const { dispatch } = useContext(authContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    dispatch({ type: "Logout" });
-    navigate("/");
+    dispatch({ type: "LOGOUT" });
+    navigate("/login");
   };
 
   const handleDeleteAccount = async () => {
@@ -26,9 +25,9 @@ const Tabs = ({ tab, setTab ,doctorData}) => {
           Authorization: `Bearer ${token}`,
         },
       });
-  
+
       const result = await res.json();
-  
+
       if (!res.ok) {
         throw new Error(result.message);
       }
@@ -39,7 +38,6 @@ const Tabs = ({ tab, setTab ,doctorData}) => {
       toast.error(err.message);
     }
   };
-  
 
   return (
     <div>
@@ -94,7 +92,10 @@ const Tabs = ({ tab, setTab ,doctorData}) => {
           >
             Logout
           </button>
-          <button onClick={handleDeleteAccount} className="w-full bg-red-500 mt-4 p-3 text-[16px] leading-7 rounded-md text-white">
+          <button
+            onClick={handleDeleteAccount}
+            className="w-full bg-red-500 mt-4 p-3 text-[16px] leading-7 rounded-md text-white"
+          >
             Delete account
           </button>
         </div>

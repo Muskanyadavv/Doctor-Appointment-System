@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { formateDate } from "../../utils/formateDate";
 
-const DoctorAbout = ({name, about, qualifications, experiences}) => {
+const DoctorAbout = ({ name, about, qualifications, experiences }) => {
   return (
     <div>
       <div>
@@ -11,9 +11,7 @@ const DoctorAbout = ({name, about, qualifications, experiences}) => {
             {name}
           </span>
         </h3>
-        <p className="text__para">
-        {about}
-        </p>
+        <p className="text__para">{about}</p>
       </div>
 
       <div className="mt-12">

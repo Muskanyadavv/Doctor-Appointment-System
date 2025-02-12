@@ -1,4 +1,4 @@
-import React from 'react';
+
  import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 const Testimonial = () => {
   return (
    
-      <div className="w-full max-w-[1000px] mx-auto overflow-hidden mt-[30px] lg:mt-[55px]">
+      <div className=".sec w-full max-w-[1000px] mx-auto overflow-hidden mt-[30px] lg:mt-[55px]">
         <Swiper 
           modules={[Pagination]}
           spaceBetween={30}
@@ -21,6 +21,66 @@ const Testimonial = () => {
             1024: { slidesPerView: 3, spaceBetween: 30, },
           }}
         >
+          <SwiperSlide>
+            <div className= "py-[30px] px-5 rounded-5">
+              <div className="flex items-center gap-[13px]">
+                <img src={patientAv} alt="" />
+                <div>
+                  <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
+                    Adarsh Yadav
+                  </h4>
+                  <div className="flex items-center gap-[2px]">
+                  {[...Array(5)].map((_, i) => (
+                    <HiStar key={i} className="text-yellowColor w-[18px] h-5" />
+                  ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">
+                I have taken medical services from them. They treat so well and they are providing the best.
+              </p>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className= "py-[30px] px-5 rounded-5">
+              <div className="flex items-center gap-[13px]">
+                <img src={patientAv} alt="" />
+                <div>
+                  <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
+                    Adarsh Yadav
+                  </h4>
+                  <div className="flex items-center gap-[2px]">
+                  {[...Array(5)].map((_, i) => (
+                    <HiStar key={i} className="text-yellowColor w-[18px] h-5" />
+                  ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">
+                I have taken medical services from them. They treat so well and they are providing the best.
+              </p>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className= "py-[30px] px-5 rounded-5">
+              <div className="flex items-center gap-[13px]">
+                <img src={patientAv} alt="" />
+                <div>
+                  <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
+                    Adarsh Yadav
+                  </h4>
+                  <div className="flex items-center gap-[2px]">
+                  {[...Array(5)].map((_, i) => (
+                    <HiStar key={i} className="text-yellowColor w-[18px] h-5" />
+                  ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">
+                I have taken medical services from them. They treat so well and they are providing the best.
+              </p>
+            </div>
+          </SwiperSlide>
           <SwiperSlide>
             <div className= "py-[30px] px-5 rounded-5">
               <div className="flex items-center gap-[13px]">

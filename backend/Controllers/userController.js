@@ -10,7 +10,7 @@ export const updateUser = async (req, res) => {
       id,
       { $set: req.body },
       { new: true }
-    );
+    ).select("-password");
     res.status(200).json({
       success: true,
       message: "Successfully updated",
@@ -60,11 +60,11 @@ export const getUserProfile = async (req, res) => {
   const userId = req.userId;
 
   try {
-    const user = await User.findById(userId);
+    const user = await User.findById(userId).select("-password");
 
     if (!user) {
       return res
-        .statis(404)
+        .status(404)
         .json({ success: false, message: "User not found" });
     }
 

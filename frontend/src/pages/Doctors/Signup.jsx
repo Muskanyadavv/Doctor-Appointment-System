@@ -61,24 +61,24 @@ const Signup = () => {
   };
 
   return (
-    <section className="px-5 xl:px-0">
-      <div className="max-w-[900px] mx-auto">
+    <section className=" sec px-5 xl:px-0">
+      <div className="max-w-[800px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="hidden lg:block bg-primaryColor rounded-l-lg">
-            <figure className="rounded-l-lg">
+          <div className="hidden lg:block bg-primaryColor rounded-l-lg w-[400px] h-[450px] pr-20 mt-10">
+            <figure className="w-[400px] h-[400px] rounded-l-lg">
               <img src={signUp} alt="" className="w-full rounded-l-lg" />
             </figure>
           </div>
 
           {/*========SUGNUP FORM=======*/}
 
-          <div className="rounded-l-lg lg:pl-16 py-10">
-            <h3 className="text-headingColor text-[22px] leading-9 font-bold mb-10">
+          <div className="rounded-l-lg lg:pl-20 py-8">
+            <h3 className="text-headingColor text-[22px] leading-9 font-bold mb-7">
               Create an
               <span className="text-primaryColor"> account</span>
             </h3>
             <form onSubmit={submitHandler}>
-              <div className="mb-5">
+              <div className="mb-4">
                 <input
                   type="text"
                   placeholder="Full Name"
@@ -91,7 +91,7 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div className="mb-5">
+              <div className="mb-4">
                 <input
                   type="email"
                   placeholder="Enter your email"
@@ -104,7 +104,7 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div className="mb-5">
+              <div className="mb-4">
                 <input
                   type="password"
                   placeholder="Password"
@@ -118,7 +118,7 @@ const Signup = () => {
                 />
               </div>
 
-              <div className="mb-5 flex items-center justify-between">
+              <div className="mb-4 flex items-center justify-between">
                 <label
                   htmlFor=""
                   className="text-headingColor font-bold text-[16px] leading-7"
@@ -153,7 +153,7 @@ const Signup = () => {
                 </label>
               </div>
 
-              <div className="mb-5 flex items-center gap-3">
+              <div className="mb-4 flex items-center gap-3">
                 {selectedFile && (
                   <figure
                     className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor
@@ -187,7 +187,7 @@ const Signup = () => {
                 </div>
               </div>
 
-              <div className="mt-7">
+              <div className="mt-5">
                 <button
                   disabled={loading && true}
                   type="submit"

@@ -1,4 +1,3 @@
-
 import heroImg from "../../assets/images/hero-img01.png";
 import heroImg02 from "../../assets/images/hero-img02.png";
 import heroImg03 from "../../assets/images/hero-img03.png";
@@ -15,20 +14,20 @@ import About from "../../components/About/About";
 import ServiceList from "../../components/Services/ServiceList";
 import DoctorsList from "../../components/Doctors/DoctorsList";
 import FaqList from "../../components/faq/FaqList";
-import Testimonial from '../../components/Testimonial/Testimonial';
+import Testimonial from "../../components/Testimonial/Testimonial";
 
 const Home = () => {
   return (
     <>
       {/* HERO Section*/}
-      <section className="hero__section pt-[60px] 2xl:h-[800px]">
+      <section className=" sec hero__section pt-[60px] 2xl:h-[800px]">
         <div className="container">
           <div className="flex flex-col lg:flex-row gap-[90px] items-center justify-between">
             {/* HERO CONTENT */}
 
             <div>
               <div className="lg:w-[570px]">
-                <h1 className="text-[36px] leading-[46px] text-headingColor font-[800] md:text-[60px] md:leading-[70px]">
+                <h1 className="text-[30px] leading-[40px] text-headingColor font-[800] md:text-[60px] md:leading-[70px]">
                   we help patients live a healthy, longer life.
                 </h1>
                 <p className="text__para">
@@ -41,7 +40,7 @@ const Home = () => {
 
                 {/* HERO COUNTER */}
 
-                <div className="mt-[30px] lg:mt-[60px] flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-[30px]">
+                <div className="mt-[20px] lg:mt-[40px] flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-[40px]">
                   <div>
                     <h2 className="text-[36px] leading-[56px] lg:text-[44px] lg:leading-[54px] font-[700] text-headingColor">
                       30+
@@ -86,20 +85,20 @@ const Home = () => {
 
       {/* HERO SECTION END */}
 
-      <section>
+      <section className="sec">
         <div className="container">
-          <div className="lg:w-[470px] mx-auto">
+          <div className="lg:w-[500px] mx-auto">
             <h2 className="heading text-center">
               Providing the best medical services
             </h2>
-            <p className="text__para text-center">
+            <p className="text__para mt-5 text-center">
               World-class care for everyone. Our health system offers unmatched,
               expert health care.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-[30px] mt-[20px] lg:mt-[30px]">
-            <div className="py-[15px] px-5">
+            <div className="py-[13px] px-5">
               <div className="flex items-center justify-center">
                 <img src={icon1} alt="" />
               </div>
@@ -108,7 +107,7 @@ const Home = () => {
                 <h2 className="text-[26px] leading-9 text-headingColor font-[700] text-center">
                   Find a Doctor
                 </h2>
-                <p className="text-[16px] leading-7 text-textColor">
+                <p className="text-[16px] leading-5 text-textColor">
                   World-class care for eveyone. Our heatlth system offers
                   unmatched, experts health care. From the lab to the clinic.
                 </p>
@@ -118,12 +117,12 @@ const Home = () => {
     mt-[30px] mx-auto flex items-center justify-center group 
     hover:bg-primaryColor hover:border-none"
                 >
-                  <BsArrowRight className="group-hover:text-white w-5 h-6" />
+                  <BsArrowRight className="group-hover:text-white w-4 h-5" />
                 </Link>
               </div>
             </div>
 
-            <div className="py-[15px] px-5">
+            <div className="py-[13px] px-5">
               <div className="flex items-center justify-center">
                 <img src={icon2} alt="" />
               </div>
@@ -132,34 +131,9 @@ const Home = () => {
                 <h2 className="text-[26px] leading-9 text-headingColor font-[700] text-center">
                   Find a Location
                 </h2>
-                <p className="text-[16px] leading-7 text-textColor">
+                <p className="text-[16px] leading-5 text-textColor">
                   World-class care for eveyone. Our heatlth system offers
                   unmatched, experts health care. From the lab to the clinic.
-                </p>
-                <Link
-                  to="/doctors"
-                  className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] 
-    mt-[30px] mx-auto flex items-center justify-center group 
-    hover:bg-primaryColor hover:border-none"
-                >
-                  <BsArrowRight className="group-hover:text-white w-5 h-6" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="py-[15px] px-5">
-              <div className="flex items-center justify-center">
-                <img src={icon3} alt="" />
-              </div>
-
-              <div className="mt-[20px]">
-                <h2 className="text-[26px] leading-9 text-headingColor font-[700] text-center">
-                  Book Appointment
-                </h2>
-                <p className="text-[16px] leading-7 text-textColor">
-                  {" "}
-                  Our heatlth system offers unmatched, experts health care. From
-                  the lab to the clinic. Always working to be best.
                 </p>
                 <Link
                   to="/doctors"
@@ -171,30 +145,54 @@ const Home = () => {
                 </Link>
               </div>
             </div>
+
+            <div className="py-[13px] px-5">
+              <div className="flex items-center justify-center">
+                <img src={icon3} alt="" />
+              </div>
+
+              <div className="mt-[20px]">
+                <h2 className="text-[26px] leading-9 text-headingColor font-[700] text-center">
+                  Book Appointment
+                </h2>
+                <p className="text-[16px] leading-5 text-textColor">
+                  {" "}
+                  World-class care for eveyone. Our heatlth system offers
+                  unmatched, experts health care. From the lab to the clinic.
+                </p>
+                <Link
+                  to="/doctors"
+                  className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] 
+    mt-[30px] mx-auto flex items-center justify-center group 
+    hover:bg-primaryColor hover:border-none"
+                >
+                  <BsArrowRight className="group-hover:text-white w-3 h-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/*============= About Section ==============*/}
-                <About />
+      <About />
 
       {/* SERVICES SECTION*/}
-      <section>
+      <section className="sec">
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
             <h2 className="heading text-center">Our medical services</h2>
-            <p className="text__para text-center">
+            <p className="text__para mt-4 text-center">
               World-class care for everyone. Our health system offers unmatched,
               expert health care.
             </p>
           </div>
-
           <ServiceList />
         </div>
       </section>
 
       {/* ==========Feature Section================== */}
-      <section>
+      <section className="sec">
         <div className="container">
           <div className="flex items-center justify-between flex-col lg:flex-row">
             <div className="xl:w-[670px]">
@@ -202,11 +200,11 @@ const Home = () => {
                 Get virtual treatment <br /> anytime.
               </h2>
               <ul className="pl-4">
-                <li className="text__para">
+                <li className="text__para mt-4">
                   1. Schedule the appointment directly.
                 </li>
                 <li className="text__para">
-                  2.Search for your physician here, and contact their office.
+                  2. Search for your physician here, and contact their office.
                 </li>
                 <li className="text__para">
                   3. View our physicians who are accepting new patients, use the
@@ -268,29 +266,28 @@ const Home = () => {
       </section>
 
       {/* ==========Our Great Doctor================== */}
-      <section>
+      <section className="sec">
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
             <h4 className="heading text-center">Our Great Doctors</h4>
-            <p className="text__para text-center">
+            <p className="text__para mt-3 text-center">
               World-class care for everyone. Our health system offers unmatched,
               expert health care.
             </p>
           </div>
-
           <DoctorsList />
         </div>
       </section>
 
       {/*=========== FAQ Section======================= */}
 
-      <section>
+      <section className="sec">
         <div className="container">
           <div className="flex justify-between gap-[50px] lg:gap-7">
             <div className="w-1/2 hidden md:block">
               <img src={faqimg} alt="/" />
             </div>
-            <div className="w-full md:1/2"> 
+            <div className="w-full md:1/2">
               <h2 className="heading">Most asked questions</h2>
               <FaqList />
             </div>
@@ -300,19 +297,18 @@ const Home = () => {
 
       {/* testimonial section */}
 
-       <section>
-     
-      <div className="container">
-      <div className="xl:w-[470px] mx-auto">
-      <h2 className="heading text-center">What our patient say</h2>
-      <p className="text__para text-center">
-        World-class care for everyone. Our health system offers unmatched, expert health care.
-      </p>
-     
-      </div> 
-  <Testimonial/>
-      </div>
-    </section>  
+      <section className="sec">
+        <div className="container">
+          <div className="xl:w-[470px] mx-auto">
+            <h2 className="heading text-center">What our patient say</h2>
+            <p className="text__para mt-3 text-center">
+              World-class care for everyone. Our health system offers unmatched,
+              expert health care.
+            </p>
+          </div>
+          <Testimonial />
+        </div>
+      </section>
 
       {/* FOOTER SECTION  */}
     </>

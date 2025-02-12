@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  section {
-    @apply py-[20px];
+  .sec {
+    @apply py-[25px];
   }
 }
 
@@ -14,15 +14,15 @@
   }
 
   .btn {
-    @apply bg-primaryColor py-[15px] px-[35px] rounded-[50px] text-white font-[600] mt-[35px];
+    @apply bg-primaryColor py-[12px] px-[25px] rounded-[50px] text-white font-[600] mt-[30px];
   }
 
   .heading {
-    @apply text-[40px] leading-[54px] font-[700] text-headingColor;
+    @apply text-[45px] leading-[40px] font-[700] text-headingColor;
   }
 
   .text_para {
-    @apply text-[20px] leading-[30px] font-[400] text-textColor mt-[15px];
+    @apply text-[20px] leading-[30px] font-[400] text-textColor mt-[35px];
   }
 
   .header {
@@ -39,7 +39,8 @@
   }
 
   .form__input {
-    @apply w-full px-4 py-3 border border-solid border-[#0066ff61] focus:outline-none focus:border-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer rounded-md;
+    @apply w-full px-4 py-3 border border-solid border-[#0066ff61] focus:outline-none
+     focus:border-primaryColor text-[14px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer rounded-md;
   }
 
 }
@@ -51,7 +52,7 @@
     @apply w-full;
   }
 
-  section {
+  .sec {
     @apply py-[20px];
   }
 }
