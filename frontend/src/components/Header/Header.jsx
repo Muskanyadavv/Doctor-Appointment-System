@@ -1,7 +1,8 @@
+
 import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/images/logo (1).png";
 import { BiMenu } from "react-icons/bi";
-import { useRef, useEffect, useContext } from "react";
+import { useRef, useEffect, useContext, useState } from "react";
 import { authContext } from "../../context/AuthContext";
 
 const navLinks = [
@@ -13,37 +14,28 @@ const navLinks = [
 
 const Header = () => {
   const headerRef = useRef(null);
-  const menuRef = useRef(null);
   const { user, role, token } = useContext(authContext);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleStickyHeader = () => {
     window.addEventListener("scroll", () => {
-      if (!headerRef.current) return;
-      if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-      ) {
-        headerRef.current.classList.add("sticky__header");
-      } else {
-        headerRef.current.classList.remove("sticky__header");
+      if (headerRef.current) {
+        const isSticky =
+          document.body.scrollTop > 80 ||
+          document.documentElement.scrollTop > 80;
+        headerRef.current.classList.toggle("sticky__header", isSticky);
       }
     });
   };
 
   useEffect(() => {
     handleStickyHeader();
-
     return () => window.removeEventListener("scroll", handleStickyHeader);
-  });
+  }, []); // Empty dependency array ensures this runs only once
+
 
   const toggleMenu = () => {
-    if (!menuRef.current) return;
-    menuRef.current.classList.toggle("show__menu");
-    document.body.style.overflow = menuRef.current.classList.contains(
-      "show__menu"
-    )
-      ? "hidden"
-      : "auto";
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -54,16 +46,15 @@ const Header = () => {
             <img src={logo} alt="Logo" />
           </div>
 
-          {/* MENUUUUUUUUUUU */}
-
-          <div className="navigation" ref={menuRef} onClick={toggleMenu}>
+          {/* Main Navigation (hidden on smaller screens) */}
+          <div className="navigation hidden md:flex">
             <ul className="menu flex items-center gap-[2.2rem]">
               {navLinks.map((link, index) => (
                 <li key={index}>
                   <NavLink
                     to={link.path}
-                    className={(navClass) =>
-                      navClass.isActive
+                    className={({ isActive }) => // Use isActive from NavLink
+                      isActive
                         ? "text-primaryColor text-[16px] leading-7 font-[600]"
                         : "text-textColor text-[16px] leading-7 font-[500] hover:text-primaryColor"
                     }
@@ -75,42 +66,65 @@ const Header = () => {
             </ul>
           </div>
 
-          {/* NAV RIGHTTT */}
-
+          {/* Right-Side Elements */}
           <div className="flex items-center gap-4">
             {token && user ? (
-              <div>
-                <Link
-                  to={`${
-                    role === "doctor"
-                      ? "/doctors/profile/me"
-                      : "/users/profile/me"
-                  }`}
-                >
-                  <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
-                    <img
-                      src={user?.photo}
-                      className="w-full rounded-full"
-                      alt=""
-                    />
-                  </figure>
-                </Link>
-              </div>
+              <Link
+                to={`${role === "doctor" ? "/doctors/profile/me" : "/users/profile/me"}`}
+              >
+                <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
+                  <img src={user?.photo} className="w-full rounded-full" alt="" />
+                </figure>
+              </Link>
             ) : (
-              <Link to="/login" className="hide-on-mobile">
-                <button
-                  className=" bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center 
-                justify-center rounded-[50px] hover:bg-primaryColor-dark transition duration-300 shadow-md hover:shadow-lg active:shadow-none"
-                >
+              <Link to="/login" className="hidden md:block">
+                <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px] hover:bg-primaryColor-dark transition duration-300 shadow-md hover:shadow-lg active:shadow-none">
                   Login
                 </button>
               </Link>
             )}
 
+            {/* Hamburger Menu Icon (only on smaller screens) */}
             <span className="md:hidden" onClick={toggleMenu}>
               <BiMenu className="w-6 h-6 cursor-pointer" />
             </span>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`fixed top-0 left-0 w-[50vw] h-full bg-white z-50 transition-transform duration-300 ease-in-out transform ${
+          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } md:hidden`}
+      >
+        <div className="container py-8">
+<button onClick={toggleMenu} className="absolute top-4 right-4 text-gray-600 text-2xl"> &times; </button>
+
+          <ul className="flex flex-col items-center gap-4">
+            {navLinks.map((link, index) => (
+              <li key={index} onClick={toggleMenu}>
+                <NavLink
+                   to={link.path}
+                  className={({ isActive }) => // Use isActive
+                    isActive
+                      ? "text-primaryColor text-[18px] font-[600]"
+                      : "text-textColor text-[18px] font-[500] hover:text-primaryColor"
+                  }
+                >
+                  {link.display}
+                </NavLink>
+              </li>
+            ))}
+            {!token && !user && (
+              <li onClick={toggleMenu}>
+                <Link to="/login">
+                  <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px] hover:bg-primaryColor-dark transition duration-300 shadow-md hover:shadow-lg active:shadow-none">Login</button>
+                </Link>
+              </li>
+            )}
+          </ul>
+
         </div>
       </div>
     </header>
@@ -118,3 +132,5 @@ const Header = () => {
 };
 
 export default Header;
+
+
