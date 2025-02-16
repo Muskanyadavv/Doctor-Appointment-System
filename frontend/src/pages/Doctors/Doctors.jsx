@@ -1,6 +1,6 @@
 import DoctorCard from "../../components/Doctors/DoctorCard";
 import { BASE_URL } from "./../../config";
-import useUserFetchData from "../../hooks/userUserFetchData";
+import useUserFetchData from "../../hooks/useUserFetchData";
 import Loader from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
 import { useEffect, useState } from "react";

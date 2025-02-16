@@ -1,11 +1,15 @@
 import DoctorCard from "./DoctorCard";
 import { BASE_URL } from "./../../config";
-import useUserFetchData  from "../../hooks/userUserFetchData";
+import useUserFetchData from "../../hooks/useUserFetchData";
 import Loader from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
 
 const DoctorsList = () => {
-  const { data: doctors, loading, error } = useUserFetchData(`${BASE_URL}/doctors`);
+  const {
+    data: doctors,
+    loading,
+    error,
+  } = useUserFetchData(`${BASE_URL}/doctors`);
   return (
     <>
       {loading && <Loader />}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Loader from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
-import useGetProfile from "../../hooks/userUserFetchData";
+import useGetProfile from "../../hooks/useUserFetchData";
 import { BASE_URL } from "../../config";
 import Tabs from "./Tabs";
 import starIcon from "../../assets/images/Star.png";

@@ -4,7 +4,7 @@ import DoctorAbout from "./DoctorAbout";
 import Feedback from "./Feedback";
 import SidePanel from "./SidePanel";
 import { BASE_URL } from "./../../config";
-import useUserFetchData from "./../../hooks/userUserFetchData";
+import useUserFetchData from "./../../hooks/useUserFetchData";
 import Loader from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
 import { useParams } from "react-router-dom";
@@ -44,7 +44,8 @@ const DoctorDetails = () => {
             <div className="md:col-span-2">
               <div className="flex items-center gap-5">
                 <figure className=" profile-image max-w-[200px] max-h-[200px]">
-                  <img src={photo} alt="" />
+                  {/* <img src={photo} alt="" /> */}
+                  <img src={photo || "/default-doctor.png"} alt="Doctor" />
                 </figure>
                 <div>
                   <span

@@ -13,7 +13,7 @@ import { BsArrowRight } from "react-icons/bs";
 import About from "../../components/About/About";
 import ServiceList from "../../components/Services/ServiceList";
 import DoctorsList from "../../components/Doctors/DoctorsList";
-import FaqList from "../../components/faq/FaqList";
+import FaqList from "../../components/Faq/FaqList";
 import Testimonial from "../../components/Testimonial/Testimonial";
 
 const Home = () => {
@@ -266,6 +266,7 @@ const Home = () => {
       </section>
 
       {/* ==========Our Great Doctor================== */}
+   
       <section className="sec">
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
@@ -277,8 +278,7 @@ const Home = () => {
           </div>
           <DoctorsList />
         </div>
-      </section>
-
+      </section> 
       {/*=========== FAQ Section======================= */}
 
       <section className="sec">

@@ -1,4 +1,4 @@
-import useUserFetchData from "../../hooks/userUserFetchData"
+import useUserFetchData from "../../hooks/useUserFetchData"
 import { BASE_URL , token} from "../../config"
 import DoctorCard from '../../components/Doctors/DoctorCard';
 import Loading from "../../components/Loader/Loading";
