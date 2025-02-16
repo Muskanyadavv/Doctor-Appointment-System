@@ -4,12 +4,15 @@ import useUserFetchData from "../../hooks/useUserFetchData";
 import Loader from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
 
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 const DoctorsList = () => {
   const {
     data: doctors,
     loading,
     error,
-  } = useUserFetchData(`${BASE_URL}/doctors`);
+  } = useUserFetchData(`${API_URL}/doctors`);
   return (
     <>
       {loading && <Loader />}

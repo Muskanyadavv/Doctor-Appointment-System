@@ -23,11 +23,13 @@ const Doctors = () => {
     return () => clearTimeout(timeout);
   }, [query]);
 
+
+  const API_URL = import.meta.env.VITE_API_URL;
   const {
     data: doctors,
     loading,
     error,
-  } = useUserFetchData(`${BASE_URL}/doctors?query=${debounceQuery}`);
+  } = useUserFetchData(`${API_URL}/doctors?query=${debounceQuery}`);
 
 
   return (

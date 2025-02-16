@@ -23,7 +23,11 @@ const FeedbackForm = () => {
         return toast.error("Rating & Review Fields are required");
       }
 
-      const res = await fetch(`${BASE_URL}/doctors/${id}/reviews`, {
+
+
+      const API_URL = import.meta.env.VITE_API_URL;
+
+      const res = await fetch(`${API_URL}/doctors/${id}/reviews`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",

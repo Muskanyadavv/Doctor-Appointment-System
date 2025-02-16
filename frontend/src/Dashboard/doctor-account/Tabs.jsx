@@ -16,9 +16,11 @@ const Tabs = ({ tab, setTab, doctorData }) => {
     navigate("/login");
   };
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleDeleteAccount = async () => {
     try {
-      const res = await fetch(`${BASE_URL}/doctors/${doctorData._id}`, {
+      const res = await fetch(`${API_URL}/doctors/${doctorData._id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

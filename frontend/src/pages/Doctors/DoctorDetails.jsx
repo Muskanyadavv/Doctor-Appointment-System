@@ -13,11 +13,14 @@ const DoctorDetails = () => {
   const [tab, setTab] = useState("about");
   const { id } = useParams();
 
+
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const {
     data: doctor,
     loading,
     error,
-  } = useUserFetchData(`${BASE_URL}/doctors/${id}`);
+  } = useUserFetchData(`${API_URL}/doctors/${id}`);
   const {
     name = "",
     qualifications = [],

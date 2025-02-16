@@ -50,10 +50,12 @@ const Profile = ({ doctorData }) => {
     setFormData({ ...formData, photo: data?.url });
   };
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const updateProfileHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${BASE_URL}/doctors/${doctorData._id}`, {
+      const res = await fetch(`${API_URL}/doctors/${doctorData._id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

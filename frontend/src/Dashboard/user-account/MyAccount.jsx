@@ -15,9 +15,11 @@ const MyAccount = () => {
   const { dispatch } = useContext(authContext);
   const [tab,setTab] = useState('bookings');
 
+
+  const API_URL = import.meta.env.VITE_API_URL;
   const {data:userData,
      loading, error} 
-  = useGetProfile(`${BASE_URL}/users/profile/me`);
+  = useGetProfile(`${API_URL}/users/profile/me`);
 
   const navigate= useNavigate();
  // console.log(userData, "userdata");

@@ -7,9 +7,12 @@ import Error from "../../components/Error/Error";
 
 const MyBookings = () => {
 
+
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const {data:appointments,
      loading, error} = 
-     useUserFetchData(`${BASE_URL}/users/appointments/my-appointments`,
+     useUserFetchData(`${API_URL}/users/appointments/my-appointments`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }

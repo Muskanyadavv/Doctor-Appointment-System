@@ -9,9 +9,12 @@ import DoctorAbout from "../../pages/Doctors/DoctorAbout";
 import Profile from "./Profile";
 import Appointments from "./Appointments";
 
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Dashboard = () => {
   const { data, loading, error } = useGetProfile(
-    `${BASE_URL}/doctors/profile/me`
+    `${API_URL}/doctors/profile/me`
   );
 
   const [tab, setTab] = useState("overview");

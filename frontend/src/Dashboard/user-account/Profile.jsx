@@ -44,12 +44,14 @@ const Profile = ({ user, onProfileUpdate }) => {
     setFormData({ ...formData, photo: data.url });
   };
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const submitHandler = async (event) => {
     event.preventDefault();
     setLoading(true);
 
     try {
-      const res = await fetch(`${BASE_URL}/users/${user._id}`, {
+      const res = await fetch(`${API_URL}/users/${user._id}`, {
         method: "put",
         headers: {
           "Content-Type": "application/json",

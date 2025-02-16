@@ -18,12 +18,14 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const submitHandler = async (event) => {
     event.preventDefault();
     setLoading(true);
     console.log("Sending Data:", formData);
     try {
-      const res = await fetch(`${BASE_URL}/auth/login`, {
+      const res = await fetch(`${API_URL}/auth/login`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
