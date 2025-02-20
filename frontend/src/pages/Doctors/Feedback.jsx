@@ -24,7 +24,7 @@ const Feedback = ({reviews=[], totalRating}) => {
                   {review?.user?.name}
                 </h5>
                 <p className="text-[14px] leading-6 text-textColor">
-                  {formateDate(review?.createedAt)}
+                  {formateDate(review?.createdAt)}
                 </p>
                 <p className="text__para mt-3 font-medium text-[15px]">
                   {review?.reviewText}
@@ -33,7 +33,7 @@ const Feedback = ({reviews=[], totalRating}) => {
             </div>
 
             <div className="flex gap-1">
-              {[...Array(review?.rating).keys()].map((_, index) => (
+              {[...Array(review?.rating || 0)].map((_, index) => (
                 <AiFillStar key={index} color="#0067FF" />
               ))}
             </div>

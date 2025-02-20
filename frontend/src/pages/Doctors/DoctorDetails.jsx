@@ -20,7 +20,7 @@ const DoctorDetails = () => {
     data: doctor,
     loading,
     error,
-  } = useUserFetchData(`${API_URL}/doctors/${id}`);
+  } = useUserFetchData(`${API_URL}/doctors/${id}`, false);
   const {
     name = "",
     qualifications = [],

@@ -1,5 +1,5 @@
 import DoctorCard from "./DoctorCard";
-import { BASE_URL } from "./../../config";
+
 import useUserFetchData from "../../hooks/useUserFetchData";
 import Loader from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";

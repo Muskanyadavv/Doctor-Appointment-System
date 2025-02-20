@@ -62,7 +62,7 @@ const FeedbackForm = () => {
                 key={index}
                 type="button"
                 className={`${
-                  index < (rating && hover) || hover
+                  index <= (rating || hover) 
                     ? "text-yellowColor"
                     : "text-gray-400"
                 } bg-transparent border-none outline-none text-[22px] cursor-pointer`}

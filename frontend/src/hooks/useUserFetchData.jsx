@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useUserFetchData = (url) => {
+const useUserFetchData = (url, requireAuth = true) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -10,11 +10,11 @@ const useUserFetchData = (url) => {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
-        if (!token) {
+        const headers = {};
+        if (requireAuth && token) {
           throw new Error("Token is missing! Please log in again.");
         }
 
-        console.log("Fetching data from:", url);
         const res = await fetch(url, {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -22,7 +22,7 @@ const useUserFetchData = (url) => {
         const result = await res.json();
 
         if (!res.ok) {
-          if (res.status === 401) {
+          if (res.status === 401 && requireAuth) {
             localStorage.removeItem("token"); // Clear the invalid token
             window.location.href = "/login"; // Redirect to login page
           }
