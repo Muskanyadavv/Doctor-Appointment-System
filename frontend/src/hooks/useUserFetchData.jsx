@@ -11,7 +11,7 @@ const useUserFetchData = (url, requireAuth = true) => {
       try {
         const token = localStorage.getItem("token");
         const headers = {};
-        if (requireAuth && token) {
+        if (requireAuth && !token) {
           throw new Error("Token is missing! Please log in again.");
         }
 

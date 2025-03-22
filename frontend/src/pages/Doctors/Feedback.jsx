@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { formateDate } from "../../utils/formateDate";
 import { AiFillStar } from "react-icons/ai";
