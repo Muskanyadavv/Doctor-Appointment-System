@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import uploadImageToCloudinary from "../../utils/uploadCloudinary";
-import { BASE_URL, token } from "./../../config";
+import {  token } from "./../../config";
 import { toast } from "react-toastify";
 
 const Profile = ({ doctorData }) => {

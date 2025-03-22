@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../../utils/uploadCloudinary";
-import { VITE_API_URL, token } from "../../config";
+import { token } from "../../config";
 import { toast } from "react-toastify";
 import { HashLoader } from "react-spinners";
 
@@ -27,7 +27,7 @@ const Profile = ({ user, onProfileUpdate }) => {
       email: user.email,
       photo: user.photo,
       gender: user.gender,
-      bloodType: user.bloodType,
+      bloodtype: user.bloodtype,
     });
   }, [user]);
 
